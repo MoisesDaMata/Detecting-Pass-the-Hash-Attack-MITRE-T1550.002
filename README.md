@@ -70,7 +70,7 @@ Username: target
 NTLM: 32ed87bdb5fdc5e9cba88547376818d4
 ```
 
-![Extracted NTLM Hash](images/ntlm_hash_extracted.png)
+![Extracted NTLM Hash](images/ntlm_hash_extracted.jpg)
 
 In real-world attacks, credential hashes may be obtained from:
 
@@ -90,7 +90,7 @@ impacket-psexec target@192.168.56.103 -hashes :32ed87bdb5fdc5e9cba88547376818d4
 
 Successful execution grants a **remote command shell** on the target system.
 
-![Pass the Hash Attack Execution](images/pass_the_hash_attack_execution.png)
+![Pass the Hash Attack Execution](images/pass_the_hash_attack_execution.jpg)
 
 This demonstrates how attackers can perform **lateral movement across the network** using stolen authentication hashes.
 
@@ -111,7 +111,7 @@ Windows records the authentication event as **Security Event ID 4624 (Successful
 | Authentication Package | NTLM              |
 | Account Name           | target            |
 
-![Windows Event Viewer 4624](images/event_4624_pass_the_hash.png)
+![Windows Event Viewer 4624](images/event_4624_pass_the_hash.jpg)
 
 Logon Type **3** indicates a **network authentication event**, which is typical for lateral movement scenarios.
 
@@ -128,7 +128,7 @@ Wazuh allows SOC analysts to correlate authentication logs and detect suspicious
 * NTLM authentication usage
 * Lateral movement attempts
 
-![Wazuh Event Log](images/wazuh_pass_the_hash_detection.png)
+![Wazuh Event Log](images/wazuh_pass_the_hash_detection.jpg)
 
 ---
 
